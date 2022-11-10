@@ -31,7 +31,7 @@ def read():
                 result += dict["Leacture"]+"老師開的"+dict["Course"]+"課程，每周"+dict["Time"]+"於"+dict["Room"]+"上課<br>"  
             return result
     else:
-        return render_template("read.html")
+            return render_template("read.html")
 
 #if __name__ == "__main__":
 #    app.run()
