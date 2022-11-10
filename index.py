@@ -20,18 +20,19 @@ def read():
     if request.method == "POST":
         cond = request.form["keyword"]
         result = "請輸入您要查詢的課程關鍵字："+ cond  
-
+        #result = "請輸入您要查詢的教師關鍵字："+ tea
         db = firestore.client()   
         collection_ref = db.collection("111")    
         docs = collection_ref.get()
         result = ""    
         for doc in docs:
             dict = doc.to_dict()
-            if cond in dict["Course"]:         
+            if cond in dict["Course"] #and dict["Leacture"]:         
                 result += dict["Leacture"]+"老師開的"+dict["Course"]+"課程，每周"+dict["Time"]+"於"+dict["Room"]+"上課<br>"  
-            return result
+    
+        return result
     else:
-            return render_template("read.html")
+        return render_template("read.html")
 
 #if __name__ == "__main__":
 #    app.run()
