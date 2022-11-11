@@ -30,8 +30,8 @@ def read():
             dict = doc.to_dict()
             if cond in dict["Course"] and tea in dict["Leacture"]:       
                 result += dict["Leacture"]+"老師開的"+dict["Course"]+"課程，每周"+dict["Time"]+"於"+dict["Room"]+"上課<br>"  
-            if result == "":
-                result = "抱歉，查無相關條件的選修課程"
+        if result == "":
+            result = "抱歉，查無相關條件的選修課程"
         return result
     else:
         return render_template("read.html")
