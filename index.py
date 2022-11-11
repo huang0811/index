@@ -19,14 +19,16 @@ def index():
 def read():
     if request.method == "POST":
         cond = request.form["keyword"]
+        cond = request.form["teacher"]
         result = "請輸入您要查詢的課程關鍵字："+ cond
+        result = "請輸入您要查詢的教師關鍵字："+ teacher
         db = firestore.client()   
         collection_ref = db.collection("111")    
         docs = collection_ref.get()
         result = ""    
         for doc in docs:
             dict = doc.to_dict()
-            if cond in dict["Course"]:       
+            if cond in dict["Course"] and ["Leacture"]:       
                 result += dict["Leacture"]+"老師開的"+dict["Course"]+"課程，每周"+dict["Time"]+"於"+dict["Room"]+"上課<br>"  
         return result
     else:
