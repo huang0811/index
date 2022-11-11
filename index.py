@@ -12,7 +12,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     homepage = "<h1>黃鈺慈的vercel</h1>"
-    homepage += "<a href=/read>讀取Firestore資料</a><br>"
+    homepage += "<a href=/read>選修課程查詢</a><br>"
     return homepage
 
 @app.route("/read", methods=["GET", "POST"])
